@@ -33,6 +33,21 @@
 
 .selector-container {
   display: flex;
+  justify-content: space-between;
+}
+
+.selector-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-selector {
+  width: 25vw;
+  border-radius: 5px;
+}
+
+p {
+  color: white;
 }
 
 .App-link {

@@ -28,7 +28,10 @@
 .body {
   background-color: #454a55;
   min-height: 90vh;
-  padding: 20px;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
 }
 
 .selector-container {
@@ -44,14 +47,53 @@
 .flex-selector {
   width: 25vw;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button {
+  width: 100vw;
+  margin-top: 10px;
 }
 
 p {
   color: white;
 }
 
+label > input { 
+  visibility: hidden; 
+  position: absolute; 
+}
+
+label > input + img { 
+    cursor:pointer;
+    border:2px solid transparent;
+}
+
+label > input:checked + img { 
+  border:2px solid rgb(255, 255, 255);
+}
+
+
+.flex-even-spread {
+  display: flex;
+  margin: 0 auto;
+}
 .App-link {
   color: #61dafb;
+}
+
+.slide-container {
+  width: 100%; /* 100% Full-height */
+   /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 95vh; /* Stay at the top */
+  left: 0;
+  background-color: darkgray; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 5vh; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 @keyframes App-logo-spin {

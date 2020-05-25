@@ -1,101 +1,124 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Select from 'react-select'
-import {courseOptions} from './assets/courseCodes.js'
+import { courseOptions } from './assets/courseCodes.js'
 import fallIcon from './assets/fall.svg'
 import winterIcon from './assets/winter.svg'
 import springIcon from './assets/spring.svg'
 
-function App() {
+class App extends Component {
 
-  let currentYear = new Date().getFullYear();
+  constructor(props) {
+    super(props)
 
-  let dateOptions = []
-
-  for (let i = currentYear; i > currentYear - 5; i--) {
-
-    dateOptions.unshift( {value: i, label: i})
+    this.state = {
+      term: "fall"
+    }
   }
+  
 
-  return (
 
-    <div className="App">
+  render() {
 
-      <header className="App-header">
+    // Calculate Current year
+    let currentYear = new Date().getFullYear();
 
-        <img src={logo} className="App-logo" alt="logo" />
+    let dateOptions = []
 
-        <p> Schedule Explorer </p>
+    for (let i = currentYear; i > currentYear - 5; i--) {
 
-      </header>
+      dateOptions.unshift({ value: i, label: i })
+    }
 
-      <div className="body">
+    return (
 
-        <div className="selector-row">
+      <div className="App">
 
-          <p className="flex-selector"> Subject</p>
-          <p className="flex-selector"> Course Code</p>
-          <p className="flex-selector"> Year</p>
+        <header className="App-header">
 
+          <img src={logo} className="App-logo" alt="logo" />
+
+          <p> Schedule Explorer </p>
+
+        </header>
+
+        <div className="body">
+          <button onClick={() => { document.getElementById("slide-container").style.top = "50vh"; }}> Slide! </button>
         </div>
 
-        <div className="selector-row">
+        <div className="slide-container" id="slide-container">
+          <div className="selector-row">
 
-          <div className="flex-selector">
-            <Select options={courseOptions}
-                    defaultValue={courseOptions[35]} />
+            <p className="flex-selector"> Subject</p>
+            <p className="flex-selector"> Course Code</p>
+            <p className="flex-selector"> Year</p>
+
           </div>
-          
-          <input className="flex-selector" type="text" />
 
-          <div className="flex-selector">
+          <div className="selector-row">
 
-            <Select options={dateOptions}
-                    defaultValue={dateOptions[4]} />
-          
+            <div className="flex-selector">
+              <Select options={courseOptions}
+                defaultValue={courseOptions[35]} />
+            </div>
+
+            <input className="flex-selector" type="text" />
+
+            <div className="flex-selector">
+
+              <Select options={dateOptions}
+                defaultValue={dateOptions[4]}
+              />
+
+            </div>
           </div>
-        </div>
 
-        <div className="selector-row">
+          <div className="selector-row">
 
-          <div className="flex-selector"> 
-            
             {/* I need to make a component out of this and recurse*/}
 
-            <label>
-                <input type="radio" checked="checked" name="Season" value="fall"/>
-                <img class="flex-even-spread" src={fallIcon} width="100" height="100" />
-            </label>
+            <div className="flex-selector">
+              <label>
+                <input type="radio" name="Season" value="fall" />
+                <img src={fallIcon} width="75px" height="75px" />
+              </label>
+            </div>
+            <div className="flex-selector">
+              <label>
+                <input type="radio" name="Season" value="fall" />
+                <img src={winterIcon} width="75px" height="75px" />
+              </label>
+            </div>
+            <div className="flex-selector">
+              <label>
+                <input type="radio" name="Season" value="fall" />
+                <img src={springIcon} width="75px" height="75px" />
+              </label>
+            </div>
 
-          </div> 
 
-          <div className="flex-selector"> 
-            
-            <label>
-                <input type="radio" checked="checked" name="Season" value="fall"/>
-                <img class="flex-even-spread" src={winterIcon} width="100" height="100" />
-            </label>
+
+
+
+
 
           </div>
 
-          <div className="flex-selector"> 
-            
-            <label>
-                <input type="radio" checked="checked" name="Season" value="fall"/>
-                <img class="flex-even-spread" src={springIcon} width="100" height="100" />
-            </label>
-
+          <div className="selector-row">
+            <input type="button" value="Submit" className="submit-button"
+              onClick={() => { alert("whatup") }}
+            // disabled={this.props.calculateDisabled} 
+            />
           </div>
-                
+
+
         </div>
-
-
-
-
       </div>
-    </div>
-  );
+    );
+
+  }
+
 }
 
 export default App;

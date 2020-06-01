@@ -6,6 +6,7 @@ import { courseOptions } from './assets/courseCodes.js'
 import fallIcon from './assets/fall.svg'
 import winterIcon from './assets/winter.svg'
 import springIcon from './assets/spring.svg'
+import FormComponent from './components/formComponent'
 
 class App extends Component {
 
@@ -25,19 +26,9 @@ class App extends Component {
 
       <div className="App">
 
-        <header className="App-header">
+        <header className="App-header"> Schedule Explorer </header>
 
-          <img src={logo} className="App-logo" alt="logo" />
-
-          <p> Schedule Explorer </p>
-
-        </header>
-
-        <div className="body">
-          <div style={{width: "50px", height: "50px", backgroundColor: "white", borderRadius: "100%"}} onClick={() => { alert("hi")}}> 
-          </div>
-          <button onClick={() => { document.getElementById("slide-container").style.top = "50vh"; }}> Slide! </button>
-        </div>
+        <FormComponent />
 
         <div className="slide-container" id="slide-container">
           <div className="selector-row">

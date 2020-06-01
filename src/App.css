@@ -1,3 +1,7 @@
+:root {
+  --primary-colour: #FF4E8D;
+}
+
 .App {
   text-align: center;
 }
@@ -14,15 +18,15 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 10vh;
-  min-width: 100vw;
+  min-width: 80vw;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(10px + 3.5vmin);
+  padding: 10vw;
+  color: var(--primary-colour);
 }
 
 .body {
@@ -54,10 +58,6 @@
 .submit-button {
   width: 100vw;
   margin-top: 10px;
-}
-
-p {
-  color: white;
 }
 
 label > input { 
@@ -103,4 +103,63 @@ label > input:checked + img {
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.bigblob {
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  filter: url(#goo);
+}
+
+#blurFilter {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.blob, .glob {
+  transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: var(--primary-colour);
+}
+
+.form-closed.blob {
+  position: absolute;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 100%;
+  bottom: 15vh;
+  left: 15vw;
+  z-index: 5;
+}
+.form-closed.glob {
+  position: absolute;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 100%;
+  bottom: 15vh;
+  left: 15vw;
+}
+
+.form-open.blob {
+  position: absolute;
+  width: 15vh;
+  height: 15vh;
+  border-radius: 100%;
+  bottom: 50vh;
+  left: 75vw;
+  z-index: 5;
+}
+
+.form-open.glob {
+  position: absolute;
+  width: 100vh;
+  height: 70vh;
+  border-radius: 100%;
+  bottom: -10vh;
+  left: -45vw;
 }

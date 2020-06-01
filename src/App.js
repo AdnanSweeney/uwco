@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './assets/logo.svg';
 import './App.css';
 import Select from 'react-select'
 import { courseOptions } from './assets/courseCodes.js'
@@ -8,16 +8,6 @@ import winterIcon from './assets/winter.svg'
 import springIcon from './assets/spring.svg'
 
 class App extends Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      term: "fall"
-    }
-  }
-  
-
 
   render() {
 
@@ -44,6 +34,8 @@ class App extends Component {
         </header>
 
         <div className="body">
+          <div style={{width: "50px", height: "50px", backgroundColor: "white", borderRadius: "100%"}} onClick={() => { alert("hi")}}> 
+          </div>
           <button onClick={() => { document.getElementById("slide-container").style.top = "50vh"; }}> Slide! </button>
         </div>
 

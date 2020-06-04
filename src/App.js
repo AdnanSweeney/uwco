@@ -30,73 +30,7 @@ class App extends Component {
 
         <FormComponent />
 
-        <div className="slide-container" id="slide-container">
-          <div className="selector-row">
-
-            <p className="flex-selector"> Subject</p>
-            <p className="flex-selector"> Course Code</p>
-            <p className="flex-selector"> Year</p>
-
-          </div>
-
-          <div className="selector-row">
-
-            <div className="flex-selector">
-              <Select options={courseOptions}
-                defaultValue={courseOptions[35]} />
-            </div>
-
-            <input className="flex-selector" type="text" />
-
-            <div className="flex-selector">
-
-              <Select options={dateOptions}
-                defaultValue={dateOptions[4]}
-              />
-
-            </div>
-          </div>
-
-          <div className="selector-row">
-
-            {/* I need to make a component out of this and recurse*/}
-
-            <div className="flex-selector">
-              <label>
-                <input type="radio" name="Season" value="fall" />
-                <img src={fallIcon} width="75px" height="75px" />
-              </label>
-            </div>
-            <div className="flex-selector">
-              <label>
-                <input type="radio" name="Season" value="fall" />
-                <img src={winterIcon} width="75px" height="75px" />
-              </label>
-            </div>
-            <div className="flex-selector">
-              <label>
-                <input type="radio" name="Season" value="fall" />
-                <img src={springIcon} width="75px" height="75px" />
-              </label>
-            </div>
-
-
-
-
-
-
-
-          </div>
-
-          <div className="selector-row">
-            <input type="button" value="Submit" className="submit-button"
-              onClick={() => { alert("whatup") }}
-            // disabled={this.props.calculateDisabled} 
-            />
-          </div>
-
-
-        </div>
+        
       </div>
     );
 

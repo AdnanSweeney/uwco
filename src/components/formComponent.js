@@ -24,41 +24,41 @@ export default function FormComponent() {
             <div className={"glob " + status} style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <div style={{ display: "flex", flexDirection: "column", marginTop: "3vh", width: "32vw" }}>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-                            <p style={{ zIndex: "10", color: "white", fontSize: "1.3em" }}> Subject </p>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh" }}>
+                            <p style={{ zIndex: "10", color: "white", fontSize: "1.1em" }}> Subject </p>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px", marginBottom: "10px" }}>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh", marginBottom: "1.5vh" }}>
                             <div style={{ borderRadius: "2vh", width: "80%", height: "10vh", backgroundColor: "white" }}></div>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px", marginBottom: "10px" }}>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh", marginBottom: "1.5vh" }}>
                             <div style={{ borderRadius: "5vh/50%", width: "10vh", height: "10vh", backgroundColor: "white" }}></div>
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", marginTop: "3vh", width: "32vw" }}>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px"}}>
-                            <p style={{ zIndex: "10", color: "white", fontSize: "1.3em" }}> Course Code </p>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh"}}>
+                            <p style={{ zIndex: "10", color: "white", fontSize: "1.1em" }}> Course Code </p>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px", marginBottom: "10px" }}>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh", marginBottom: "1.5vh" }}>
                             <div style={{ borderRadius: "2vh", width: "80%", height: "10vh", backgroundColor: "white" }}></div>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px", marginBottom: "10px" }}>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh", marginBottom: "1.5vh" }}>
                             <div style={{ borderRadius: "5vh/50%", width: "10vh", height: "10vh", backgroundColor: "white" }}></div>
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", marginTop: "3vh", width: "32vw" }}>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px"}}>
-                            <p style={{ zIndex: "10", color: "white", fontSize: "1.3em" }}> Year </p>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh"}}>
+                            <p style={{ zIndex: "10", color: "white", fontSize: "1.1em" }}> Year </p>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px", marginBottom: "10px" }}>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh", marginBottom: "1.5vh" }}>
                             <div style={{ borderRadius: "2vh", width: "80%", height: "10vh", backgroundColor: "white" }}></div>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "center", marginTop: "10px", marginBottom: "10px" }}>
+                        <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5vh", marginBottom: "1.5vh" }}>
                             <div style={{ borderRadius: "5vh/50%", width: "10vh", height: "10vh", backgroundColor: "white" }}></div>
                         </div>
                     </div>
                 </div>
 
-                <div style={{marginTop: "10px", display: "flex", width: "90vw", height: "10vh", backgroundColor: "white", borderRadius: "5vh/50%"}}></div>
+                <div style={{marginTop: "1.5vh", display: "flex", width: "90vw", height: "10vh", backgroundColor: "white", borderRadius: "5vh/50%"}}></div>
 
             </div>
 

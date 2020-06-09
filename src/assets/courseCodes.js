@@ -8,4 +8,4 @@ courseList.forEach(courseCode => {
     
   });
 
-export {courseOptions}
+export {courseList, courseOptions}

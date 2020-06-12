@@ -64,20 +64,28 @@
   margin-top: 10px;
 }
 
+.secondary-border {
+  border: 0.5vw solid white;
+  background-color: transparent;
+}
+
 label > input { 
   visibility: hidden; 
   position: absolute; 
 }
 
-label > input + img { 
+label > input + .centered-flex-container { 
     cursor:pointer;
-    border:2px solid transparent;
 }
 
-label > input:checked + img { 
-  border:2px solid rgb(255, 255, 255);
+label > input:checked + .centered-flex-container { 
+  border: 0.5vw solid white;
+  background-color: var(--primary-colour) !important;
 }
 
+label > input:checked + .centered-flex-container > div {
+  color: white !important;
+}
 
 .flex-even-spread {
   display: flex;

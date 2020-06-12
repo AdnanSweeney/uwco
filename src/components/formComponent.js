@@ -72,8 +72,8 @@ export default function FormComponent() {
                         <InputRadio label="S" />
                     </div>
                     <div className="centered-flex-container">
-                        <div className="centered-flex-container even-container-margin" style={{ width: "90vw", height: "9vh", backgroundColor: "white", borderRadius: "5vh/50%" }}>
-                            <p className="input-label pink-text"> Submit </p>
+                        <div className="centered-flex-container even-container-margin white-text input-label secondary-border" style={{ width: "90vw", height: "9vh", borderRadius: "5vh/50%" }}>
+                            Submit
                         </div>
                     </div>
                 </div>

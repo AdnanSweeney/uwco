@@ -7,7 +7,7 @@
 } */
 
 /* div {
-  border: solid red 1px;
+  border: solid lightpink 0.25px;
 } */
 
 .App-logo {
@@ -167,8 +167,54 @@ label > input:checked + img {
 
 .form-open-icon-margin {
   margin-top: 4vh;
+  margin-left: -1vw;
 }
 
 .form-closed-icon-margin {
   margin-top: 3vh;
+}
+
+.rect-input { 
+  box-sizing: border-box;
+  outline-color: transparent;
+  font-size: 4vw;
+  border: none;
+  padding: 2vw;
+  border-radius: 2vh;
+  width: 80%;
+  height: 9vh;
+  background-color: white;
+}
+
+.flex-input-container {
+  display: flex;  
+  justify-content: center; 
+  align-items: center;
+  margin-top: 2vh; 
+  margin-bottom: 2vh;  
+}
+
+.centered-flex-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.even-container-margin {
+  margin-top: 2vh; 
+  margin-bottom: 2vh;  
+  width: 32vw;
+}
+
+.input-label {
+  font-size: 5vw;
+  z-index: 5;
+}
+
+.white-text {
+  color: white;
+}
+
+.pink-text {
+  color: var(--primary-colour)
 }

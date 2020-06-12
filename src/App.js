@@ -12,16 +12,6 @@ class App extends Component {
 
   render() {
 
-    // Calculate Current year
-    let currentYear = new Date().getFullYear();
-
-    let dateOptions = []
-
-    for (let i = currentYear; i > currentYear - 5; i--) {
-
-      dateOptions.unshift({ value: i, label: i })
-    }
-
     return (
 
       <div className="App">
@@ -30,7 +20,6 @@ class App extends Component {
 
         <FormComponent />
 
-        
       </div>
     );
 

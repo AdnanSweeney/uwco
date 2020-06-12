@@ -6,6 +6,9 @@ import Select from 'react-select'
 import '../App.css';
 import { courseList, courseOptions } from '../assets/courseCodes.js'
 import InputLabel from './inputLabel'
+import InputSelect from './inputSelect'
+import InputRadiofrom from './inputRadio'
+import InputRadio from "./inputRadio";
 
 export default function FormComponent() {
 
@@ -27,13 +30,13 @@ export default function FormComponent() {
     // Calculate current year and create list of years for form input
     let currentYear = new Date().getFullYear();
 
-    let dateOptions = []
-    let dates = []
+    let yearOptions = []
+    let yearList = []
 
     for (let i = currentYear; i > currentYear - 5; i--) {
 
-        dateOptions.unshift({ value: i, label: i })
-        dates.unshift(i)
+        yearOptions.unshift({ value: i, label: i })
+        yearList.unshift(i)
 
     }
 
@@ -46,8 +49,8 @@ export default function FormComponent() {
                 </div>
             </div>
             <div className={"glob " + status} style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
-                {/* <div className={(status === "form-closed" ? "hidden-class" : "") + " centered-flex-container"} style={{ flexDirection: "column", marginTop: "5vh" }}> */}
                 <div className={"centered-flex-container"} style={{ flexDirection: "column", marginTop: "5vh" }}>
+
                     <div className="centered-flex-container" >
                         <InputLabel label="Subject" />
                         <InputLabel label="Course Code" />
@@ -55,43 +58,21 @@ export default function FormComponent() {
                     </div>
 
                     <div className="centered-flex-container">
+                        <InputSelect defaultValue="CS" ListOfOptionNames={courseList} />
                         <div className="centered-flex-container even-container-margin" >
-                            <select defaultValue="CS" className="rect-input">
-                                {courseList.map(course => <option value={course}>{course}</option>)}
-                            </select>
-                            {/* <Select options={courseOptions} styles={{ container: (provided) => ({ ...provided, width: "80%" }), control: (provided) => ({ ...provided, height: "9vh", borderRadius: "2vh" }) }} /> */}
-                        </div>
-                        <div className="centered-flex-container even-container-margin" >
-                            {/* <div style={{ borderRadius: "2vh", width: "80%", height: "9vh", border: "none", backgroundColor: "white" }}></div> */}
                             <input pattern="[0-9]*" inputmode="numeric" placeholder="135" className="rect-input" ></input>
                         </div>
-                        <div className="centered-flex-container even-container-margin" >
-                            {/* <Select options={dateOptions} styles={{ container: (provided) => ({ ...provided, width: "80%" }), control: (provided) => ({ ...provided, height: "9vh", borderRadius: "2vh" }) }} /> */}
-                            <select defaultValue={currentYear} className="rect-input">
-                                {dates.map(date => <option value={date}>{date}</option>)}
-                            </select>
-                        </div>
+                        <InputSelect defaultValue={currentYear} ListOfOptionNames={yearList} />
+
                     </div>
 
                     <div className="centered-flex-container">
-                        <div className="centered-flex-container even-container-margin" >
-                            <div className="centered-flex-container" style={{ borderRadius: "5.5vh/50%", width: "11vh", height: "11vh", backgroundColor: "white" }}>
-                                <div style={{ color: "#FF4E8D", fontSize: "5vh" }}>F</div>
-                            </div>
-                        </div>
-                        <div className="centered-flex-container even-container-margin" >
-                            <div className="centered-flex-container" style={{ borderRadius: "5.5vh/50%", width: "11vh", height: "11vh", backgroundColor: "white" }}>
-                                <div style={{ color: "#FF4E8D", fontSize: "5vh" }}>W</div>
-                            </div>
-                        </div>
-                        <div className="centered-flex-container even-container-margin" >
-                            <div className="centered-flex-container" style={{ borderRadius: "5.5vh/50%", width: "11vh", height: "11vh", backgroundColor: "white" }}>
-                                <div style={{ color: "#FF4E8D", fontSize: "5vh" }}>S</div>
-                            </div>
-                        </div>
+                        <InputRadio label="F" />
+                        <InputRadio label="W" />
+                        <InputRadio label="S" />
                     </div>
                     <div className="centered-flex-container">
-                        <div className="centered-flex-container" style={{ marginTop: "2vh", width: "90vw", height: "9vh", backgroundColor: "white", borderRadius: "5vh/50%" }}>
+                        <div className="centered-flex-container even-container-margin" style={{ width: "90vw", height: "9vh", backgroundColor: "white", borderRadius: "5vh/50%" }}>
                             <p className="input-label pink-text"> Submit </p>
                         </div>
                     </div>

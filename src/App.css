@@ -74,10 +74,6 @@ label > input {
   position: absolute; 
 }
 
-label > input + .centered-flex-container { 
-    cursor:pointer;
-}
-
 label > input:checked + .centered-flex-container { 
   border: 0.5vw solid white;
   background-color: var(--primary-colour) !important;
@@ -147,6 +143,7 @@ label > input:checked + .centered-flex-container > div {
   bottom: 14.5vw;
   left: 14.5vw;
   transition: all 600ms cubic-bezier(0.5, 0, 0.2, 1.4);
+  visibility: hidden;
 }
 
 .form-open.blob {
@@ -184,7 +181,6 @@ label > input:checked + .centered-flex-container > div {
 
 .rect-input { 
   box-sizing: border-box;
-  outline-color: transparent;
   font-size: 4vw;
   border: none;
   padding: 2vw;
@@ -192,6 +188,7 @@ label > input:checked + .centered-flex-container > div {
   width: 80%;
   height: 9vh;
   background-color: white;
+  outline: none;
 }
 
 .flex-input-container {
@@ -199,7 +196,7 @@ label > input:checked + .centered-flex-container > div {
   justify-content: center; 
   align-items: center;
   margin-top: 2vh; 
-  margin-bottom: 2vh;  
+  margin-bottom: 2vh;
 }
 
 .centered-flex-container{
@@ -225,4 +222,11 @@ label > input:checked + .centered-flex-container > div {
 
 .pink-text {
   color: var(--primary-colour)
+}
+
+input[type=submit]:active {
+  color: var(--primary-colour) !important;
+  background-color: white;
+  border-color: var(--primary-colour) !important;
+  
 }

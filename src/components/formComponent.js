@@ -10,7 +10,7 @@ import InputSelect from './inputSelect'
 import InputRadiofrom from './inputRadio'
 import InputRadio from "./inputRadio";
 
-export default function FormComponent() {
+export default function FormComponent(props) {
 
     // Change element class name when form elements are toggled
     const [status, setStatus] = useState("form-open");
@@ -40,6 +40,17 @@ export default function FormComponent() {
 
     }
 
+    // States for selected form input values
+    const [selectedSubject, setSelectedSubject] = useState("CS")
+    const [selectedCode, setSelectedCode] = useState("")
+    const [selectedYear, setSelectedYear] = useState(currentYear)
+    const [selectedTerm, setSelectedTerm] = useState("F")
+
+    console.log(selectedTerm)
+    console.log(selectedSubject)
+    console.log(selectedYear)
+    console.log(selectedCode)
+
     return (
 
         <div className="bigblob">
@@ -58,23 +69,21 @@ export default function FormComponent() {
                     </div>
 
                     <div className="centered-flex-container">
-                        <InputSelect defaultValue="CS" ListOfOptionNames={courseList} />
+                        <InputSelect defaultValue={selectedSubject} ListOfOptionNames={courseList} onChange={setSelectedSubject} />
                         <div className="centered-flex-container even-container-margin" >
-                            <input pattern="[0-9]*" inputmode="numeric" placeholder="135" className="rect-input" ></input>
+                            <input pattern="[0-9]*" inputmode="numeric" placeholder="135" className="rect-input" onChange={(e) => { setSelectedCode(e.target.value)}} ></input>
                         </div>
-                        <InputSelect defaultValue={currentYear} ListOfOptionNames={yearList} />
+                        <InputSelect defaultValue={currentYear} ListOfOptionNames={yearList} onChange={setSelectedYear} />
 
                     </div>
 
                     <div className="centered-flex-container">
-                        <InputRadio label="F" />
-                        <InputRadio label="W" />
-                        <InputRadio label="S" />
+                        <InputRadio label="F" setSelectedTerm={setSelectedTerm} defaultChecked="true"/>
+                        <InputRadio label="W" setSelectedTerm={setSelectedTerm}/>
+                        <InputRadio label="S" setSelectedTerm={setSelectedTerm}/>
                     </div>
                     <div className="centered-flex-container">
-                        <div className="centered-flex-container even-container-margin white-text input-label secondary-border" style={{ width: "90vw", height: "9vh", borderRadius: "5vh/50%" }}>
-                            Submit
-                        </div>
+                        <input type="submit" className="centered-flex-container even-container-margin white-text input-label secondary-border" style={{ outline: "none", outlineColor: "transparent", width: "90vw", height: "9vh", borderRadius: "5vh/50%" }} />
                     </div>
                 </div>
             </div>

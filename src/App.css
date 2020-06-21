@@ -224,9 +224,41 @@ label > input:checked + .centered-flex-container > div {
   color: var(--primary-colour)
 }
 
-input[type=submit]:active {
+button[type=submit]:active {
   color: var(--primary-colour) !important;
   background-color: white;
   border-color: var(--primary-colour) !important;
-  
+}
+
+table {
+  font-family: arial, sans-serif;
+  /* font-size: 10pt; */
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  overflow-x:auto;
+  border: 1px solid #CBCBCB;
+  text-align: left;
+  padding: 8px;
+  width: 20%;
+  vertical-align: bottom;
+}
+
+td {
+  font-size: 9pt;
+  color: #000000;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+tr:nth-child(odd) {
+  background-color: lightgray;
+}
+
+th {
+  background-color: gray;
 }

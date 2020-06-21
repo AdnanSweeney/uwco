@@ -46,10 +46,19 @@ export default function FormComponent(props) {
     const [selectedYear, setSelectedYear] = useState(currentYear)
     const [selectedTerm, setSelectedTerm] = useState("F")
 
-    console.log(selectedTerm)
-    console.log(selectedSubject)
-    console.log(selectedYear)
-    console.log(selectedCode)
+    function createApiRequest(subject, courseCode, year, term) {
+
+        const apiKey = "7a59e500684580cef438e8d6a4892100"
+        const termMap = {
+            "F": 9,
+            "W": 1,
+            "S": 5,
+        }
+
+        let termCode = "1" + year.toString().slice(-2) + termMap[term]
+
+        return ( "https://api.uwaterloo.ca/v2/terms/" + termCode + "/" + subject + (courseCode ? "/" + courseCode : courseCode) + "/schedule.json?key=" + apiKey)
+    }
 
     return (
 
@@ -61,30 +70,31 @@ export default function FormComponent(props) {
             </div>
             <div className={"glob " + status} style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
                 <div className={"centered-flex-container"} style={{ flexDirection: "column", marginTop: "5vh" }}>
-
-                    <div className="centered-flex-container" >
-                        <InputLabel label="Subject" />
-                        <InputLabel label="Course Code" />
-                        <InputLabel label="Year" />
-                    </div>
-
-                    <div className="centered-flex-container">
-                        <InputSelect defaultValue={selectedSubject} ListOfOptionNames={courseList} onChange={setSelectedSubject} />
-                        <div className="centered-flex-container even-container-margin" >
-                            <input pattern="[0-9]*" inputmode="numeric" placeholder="135" className="rect-input" onChange={(e) => { setSelectedCode(e.target.value)}} ></input>
+                    <form onSubmit={(e) => { props.searchSchedules(createApiRequest(selectedSubject, selectedCode, selectedYear, selectedTerm), e)}}>
+                        <div className="centered-flex-container" >
+                            <InputLabel label="Subject" />
+                            <InputLabel label="Course Code" />
+                            <InputLabel label="Year" />
                         </div>
-                        <InputSelect defaultValue={currentYear} ListOfOptionNames={yearList} onChange={setSelectedYear} />
 
-                    </div>
+                        <div className="centered-flex-container">
+                            <InputSelect defaultValue={selectedSubject} ListOfOptionNames={courseList} onChange={setSelectedSubject} />
+                            <div className="centered-flex-container even-container-margin" >
+                                <input pattern="[0-9]*" inputmode="numeric" placeholder="135" className="rect-input" onChange={(e) => { setSelectedCode(e.target.value) }} ></input>
+                            </div>
+                            <InputSelect defaultValue={currentYear} ListOfOptionNames={yearList} onChange={setSelectedYear} />
 
-                    <div className="centered-flex-container">
-                        <InputRadio label="F" setSelectedTerm={setSelectedTerm} defaultChecked="true"/>
-                        <InputRadio label="W" setSelectedTerm={setSelectedTerm}/>
-                        <InputRadio label="S" setSelectedTerm={setSelectedTerm}/>
-                    </div>
-                    <div className="centered-flex-container">
-                        <input type="submit" className="centered-flex-container even-container-margin white-text input-label secondary-border" style={{ outline: "none", outlineColor: "transparent", width: "90vw", height: "9vh", borderRadius: "5vh/50%" }} />
-                    </div>
+                        </div>
+
+                        <div className="centered-flex-container">
+                            <InputRadio label="F" setSelectedTerm={setSelectedTerm} defaultChecked="true" />
+                            <InputRadio label="W" setSelectedTerm={setSelectedTerm} />
+                            <InputRadio label="S" setSelectedTerm={setSelectedTerm} />
+                        </div>
+                        <div className="centered-flex-container">
+                            <button type="submit" className="centered-flex-container even-container-margin white-text input-label secondary-border" style={{ outline: "none", outlineColor: "transparent", width: "90vw", height: "9vh", borderRadius: "5vh/50%" }} > Submit </button>
+                        </div>
+                    </form>
                 </div>
             </div>
 

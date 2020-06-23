@@ -15,29 +15,32 @@ export default function App() {
 
   const searchSchedules = async (query, e) => {
     e.preventDefault();
-    
-                
+
+
     try {
 
-        const res = await fetch(query);
-        const data  = await res.json();
-        
-        console.log(data.data)
-        setSchedules(data.data)
+      const res = await fetch(query);
+      const data = await res.json();
 
-    }catch(err){
-        console.error(err);
+      console.log(data.data)
+      setSchedules(data.data)
+
+    } catch (err) {
+      console.error(err);
     }
-}
+  }
 
   return (
 
     <div className="App">
-
+      <meta
+        name='viewport'
+        content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+      />
       <header className="App-header"> Schedule Explorer </header>
       {/* <div> {String(schedules)} </div> */}
-      <FormComponent searchSchedules={searchSchedules}/>
-      <CourseTable data={schedules}/>
+      <FormComponent searchSchedules={searchSchedules} />
+      <CourseTable data={schedules} />
     </div>
   );
 

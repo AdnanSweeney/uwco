@@ -70,7 +70,7 @@ export default function FormComponent(props) {
             </div>
             <div className={"glob " + status} style={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
                 <div className={"centered-flex-container"} style={{ flexDirection: "column", marginTop: "5vh" }}>
-                    <form onSubmit={(e) => { props.searchSchedules(createApiRequest(selectedSubject, selectedCode, selectedYear, selectedTerm), e)}}>
+                    <form onSubmit={(e) => { toggleStatus(status); props.searchSchedules(createApiRequest(selectedSubject, selectedCode, selectedYear, selectedTerm), e)}}>
                         <div className="centered-flex-container" >
                             <InputLabel label="Subject" />
                             <InputLabel label="Course Code" />

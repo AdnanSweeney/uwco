@@ -6,6 +6,10 @@
   text-align: center;
 } */
 
+.App {
+  font-family: 'Nunito', sans-serif;
+}
+
 /* div {
   border: solid lightpink 0.25px;
 } */
@@ -22,7 +26,7 @@
 }
 
 .App-header {
-  min-height: 10vh;
+  min-height: 7.5vh;
   min-width: 80vw;
   display: flex;
   flex-direction: row;
@@ -30,6 +34,7 @@
   justify-content: flex-start;
   font-size: calc(10px + 3.5vmin);
   padding: 10vw;
+  font-weight: 600;
   color: var(--primary-colour);
 }
 
@@ -180,8 +185,10 @@ label > input:checked + .centered-flex-container > div {
 }
 
 .rect-input { 
+  font-family: 'Nunito', sans-serif;
   box-sizing: border-box;
   font-size: 4vw;
+  font-weight: 600;
   border: none;
   padding: 2vw;
   border-radius: 2vh;
@@ -212,7 +219,9 @@ label > input:checked + .centered-flex-container > div {
 }
 
 .input-label {
-  font-size: 5vw;
+  font-size: 5.5vw;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
   z-index: 5;
 }
 
@@ -234,21 +243,30 @@ table {
   font-family: arial, sans-serif;
   /* font-size: 10pt; */
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
+  border:1px solid #CECECE;
+  border-radius: 50%;
+}
+
+td {
+  color: #7A7A7A;
+  font-weight: 500;
+}
+
+th {
+  font-weight: 600;
 }
 
 td, th {
   overflow-x:auto;
-  border: 1px solid #CBCBCB;
+  border-top: 1px solid #CECECE;
+  border-bottom: 1px solid #CECECE;
   text-align: left;
-  padding: 8px;
+  padding: 5px;
   width: 20%;
   vertical-align: bottom;
-}
-
-td {
-  font-size: 9pt;
-  color: #000000;
+  font-size: 0.8em;
+  font-family: 'Nunito', sans-serif;
 }
 
 tr:nth-child(even) {
@@ -256,9 +274,9 @@ tr:nth-child(even) {
 }
 
 tr:nth-child(odd) {
-  background-color: lightgray;
+  background-color: #F1F1F1;
 }
 
 th {
-  background-color: gray;
+  background-color: white;
 }

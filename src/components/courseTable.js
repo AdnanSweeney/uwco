@@ -9,31 +9,45 @@ export default function CourseTable(props) {
 
     return (
         <div className="centered-flex-container">
-            <div style={{ width: "80%", minHeight: "60%", marginBottom: "10%"}}>
+            <div style={{ width: "87.5%", minHeight: "60%", marginBottom: "10%" }}>
                 <table>
                     <thead>
                         <tr>
                             <th>Course</th>
                             <th>Section</th>
                             <th>Time</th>
-                            <th>Room</th>
+                            {/* <th>Room</th> */}
                             <th>Capacity</th>
-                            {/* <th>Instructor</th>
-                        <th>Campus</th> */}
+                            <th>Instructor</th>
+                        {/* <th>Campus</th> */}
                         </tr>
                     </thead>
                     <tbody>
-                        {props.data.map(courseInfo =>
-                            <tr>
-                                {/* <td> {courseInfo.subject + courseInfo.catalog_number + ": " + courseInfo.title}</td> */}
-                                <td> {courseInfo.subject + courseInfo.catalog_number}</td>
-                                <td> {courseInfo.section}</td>
-                                <td> {courseInfo.classes[0].date.start_time + " - " + courseInfo.classes[0].date.end_time + " " + courseInfo.classes[0].date.weekdays}</td>
-                                <td> {courseInfo.classes[0].location.building + courseInfo.classes[0].location.room}</td>
-                                <td> {courseInfo.enrollment_total + "/" + courseInfo.enrollment_capacity}</td>
-                                {/* <td> {courseInfo.classes[0].instructors[0]}</td>
-                            <td> {courseInfo.campus}</td> */}
-                            </tr>
+                        {props.data.map(courseInfo => {
+
+                            let courseCode = courseInfo.subject + courseInfo.catalog_number
+                            // let campus = courseInfo.campus
+                            let online = courseInfo.campus === "ONLN ONLINE"
+                            let courseSlot = online ? "ONLINE" : courseInfo.classes[0].date.start_time ? courseInfo.classes[0].date.start_time + " - " + courseInfo.classes[0].date.end_time + " " + courseInfo.classes[0].date.weekdays : "TBD"
+                            let courseRoom = online ? "ONLINE" : courseInfo.classes[0].location.building ? courseInfo.classes[0].location.building + courseInfo.classes[0].location.room : "TBD"
+                            let courseEnrollment = courseInfo.enrollment_total + "/" + courseInfo.enrollment_capacity
+                            let instructorName = courseInfo.classes[0].instructors.length ? courseInfo.classes[0].instructors[0]: "TBD"
+                            let instructorSplit = instructorName.split(/([,\s])/)
+                            let instructorInitials = instructorSplit[0] !== "TBD" ? instructorSplit[instructorSplit.length - 1][0] + ". " + instructorSplit[0] : "TBD"
+
+                            return (<tr>
+                                        {/* <td> {courseInfo.subject + courseInfo.catalog_number + ": " + courseInfo.title}</td> */}
+                                        <td> {courseCode}</td>
+                                        <td> {courseInfo.section}</td>
+                                        <td> {courseSlot}</td>
+                                        {/* <td> {courseRoom}</td> */}
+                                        <td> {courseEnrollment}</td>
+                                        <td> {instructorInitials}</td>
+                                        {/* <td> {courseInfo.classes[0].instructors[0]}</td>
+                                    <td> {courseInfo.campus}</td> */}
+                                    </tr>)
+                        }
+
                         )}
                     </tbody>
                 </table>

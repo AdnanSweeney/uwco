@@ -273,6 +273,7 @@ tr:nth-child(odd) {
 th {
   background-color: white;
   font-weight: 600;
+  text-align: center;
 }
 
  /* top-left border-radius */
@@ -306,5 +307,4 @@ table tr td:first-child {
 }
 table tr th{
   border-top: 1px solid #CECECE;
-  text-align: left;
 }

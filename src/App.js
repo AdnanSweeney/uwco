@@ -1,101 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component, useState } from 'react';
+import logo from './assets/logo.svg';
 import './App.css';
 import Select from 'react-select'
-import {courseOptions} from './assets/courseCodes.js'
+import { courseOptions } from './assets/courseCodes.js'
 import fallIcon from './assets/fall.svg'
 import winterIcon from './assets/winter.svg'
 import springIcon from './assets/spring.svg'
+import FormComponent from './components/formComponent'
+import CourseTable from './components/courseTable'
 
-function App() {
+export default function App() {
 
-  let currentYear = new Date().getFullYear();
+  let [schedules, setSchedules] = useState([])
 
-  let dateOptions = []
+  const searchSchedules = async (query, e) => {
+    e.preventDefault();
 
-  for (let i = currentYear; i > currentYear - 5; i--) {
 
-    dateOptions.unshift( {value: i, label: i})
+    try {
+
+      const res = await fetch(query);
+      const data = await res.json();
+
+      console.log(data.data)
+      setSchedules(data.data)
+
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   return (
 
     <div className="App">
-
-      <header className="App-header">
-
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <p> Schedule Explorer </p>
-
-      </header>
-
-      <div className="body">
-
-        <div className="selector-row">
-
-          <p className="flex-selector"> Subject</p>
-          <p className="flex-selector"> Course Code</p>
-          <p className="flex-selector"> Year</p>
-
-        </div>
-
-        <div className="selector-row">
-
-          <div className="flex-selector">
-            <Select options={courseOptions}
-                    defaultValue={courseOptions[35]} />
-          </div>
-          
-          <input className="flex-selector" type="text" />
-
-          <div className="flex-selector">
-
-            <Select options={dateOptions}
-                    defaultValue={dateOptions[4]} />
-          
-          </div>
-        </div>
-
-        <div className="selector-row">
-
-          <div className="flex-selector"> 
-            
-            {/* I need to make a component out of this and recurse*/}
-
-            <label>
-                <input type="radio" checked="checked" name="Season" value="fall"/>
-                <img class="flex-even-spread" src={fallIcon} width="100" height="100" />
-            </label>
-
-          </div> 
-
-          <div className="flex-selector"> 
-            
-            <label>
-                <input type="radio" checked="checked" name="Season" value="fall"/>
-                <img class="flex-even-spread" src={winterIcon} width="100" height="100" />
-            </label>
-
-          </div>
-
-          <div className="flex-selector"> 
-            
-            <label>
-                <input type="radio" checked="checked" name="Season" value="fall"/>
-                <img class="flex-even-spread" src={springIcon} width="100" height="100" />
-            </label>
-
-          </div>
-                
-        </div>
-
-
-
-
-      </div>
+      <meta
+        name='viewport'
+        content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+      />
+      <header className="App-header"> Schedule Explorer </header>
+      {/* <div> {String(schedules)} </div> */}
+      <FormComponent searchSchedules={searchSchedules} />
+      <CourseTable data={schedules} />
     </div>
   );
-}
 
-export default App;
+
+
+}
